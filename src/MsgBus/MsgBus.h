@@ -60,7 +60,7 @@ public:
 		for(Iterater it=range.first; it!=range.second; ++it)
 		{
 			auto f = it->second.first.AnyCast<function_type>();
-            if (topic & 0x1000)    //放入线程池去执行
+            if (topic > 0x3fff)    //放入线程池去执行
             {
                 ThreadPool::GetInst().EnQueue(f, std::forward<Args>(args)...);
             }
